@@ -1,0 +1,279 @@
+:root {
+    --primary: #ff8a3d;
+    --secondary: #17a2b8;
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #333333;
+    --danger: #dc3545;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.container {
+    padding: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+tab-btn {
+    padding: 12px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+tab-btn:hover {
+    color: var(--primary);
+}
+
+tab-content {
+    display: none;
+}
+
+tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.primary-btn, .danger-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+    width: 100%;
+}
+
+.primary-btn:hover {
+    background: #ff7a1f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 138, 61, 0.3);
+}
+
+.danger-btn {
+    background: var(--danger);
+    color: white;
+    width: 100%;
+}
+
+danger-btn:hover {
+    background: #c82333;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.card-title {
+    font-weight: 600;
+    flex: 1;
+}
+
+.card-zeit {
+    font-size: 12px;
+    color: #666;
+}
+
+.zutaten-liste, .einkauf-liste {
+    margin-bottom: 20px;
+}
+
+.einkauf-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.einkauf-item.checked {
+    opacity: 0.6;
+}
+
+.einkauf-item.checked label {
+    text-decoration: line-through;
+    color: #999;
+}
+
+einkauf-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.einkauf-item label {
+    flex: 1;
+    cursor: pointer;
+}
+
+.einkauf-item button {
+    padding: 6px 12px;
+    background: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--danger);
+    padding: 0;
+}
+
+.rezept-detail {
+    background: var(--card);
+    border-left: 4px solid var(--primary);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.rezept-detail h3 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.rezept-zutaten {
+    list-style: none;
+    padding-left: 0;
+}
+
+.rezept-zutaten li {
+    padding: 6px 0;
+    padding-left: 24px;
+    position: relative;
+}
+
+.rezept-zutaten li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.empty-msg {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}
